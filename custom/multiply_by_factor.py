@@ -26,13 +26,13 @@ class MultiplyByFactor(BaseTransformer):
         self.factor = float(factor)
         super().__init__()
 
-     def execute(self, df):
+    def execute(self, df):
          df = df.copy()
          for i,input_item in enumerate(self.input_items):
              df[self.output_items[i]] = df[input_item] * self.factor
          return df
                  
-     @classmethod
+    @classmethod
          def build_ui(cls):
              #define arguments that behave as function inputs
              inputs = []
