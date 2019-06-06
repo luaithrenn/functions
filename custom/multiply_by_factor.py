@@ -35,7 +35,7 @@ class MultiplyByFactor(BaseTransformer):
         #Execute method.
         
         df = df.copy()
-        df[self.output_item] = df[input_item_1] * self.factor
+        df[self.output_item] = df[self.input_item_1] * self.factor
         return df
 
     @classmethod
@@ -55,7 +55,7 @@ class MultiplyByFactor(BaseTransformer):
         outputs = []
         outputs.append(ui.UIFunctionOutSingle(
             name='output_item',
-            datatype=float,
+            datatype=string,
             description='result of multiplication'
             ))
         return (inputs,outputs)
