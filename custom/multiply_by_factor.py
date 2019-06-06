@@ -55,7 +55,7 @@ class MultiplyByFactor(BaseTransformer):
         outputs = []
         outputs.append(ui.UIFunctionOutSingle(
             name='output_item',
-            datatype=string,
+            datatype=str,
             description='result of multiplication'
             ))
         return (inputs,outputs)
