@@ -1,11 +1,11 @@
-# Empty Python Package
+# Starter Python Package
 
-This package is empty. 
+This is a starter package
 
 To install this package: 
 
 ```
-pip install git+git://github.com/madendorff/functions --upgrade
+pip install git+git://github.com/<your_repo>/functions --upgrade
 ```
 
 Prereqs are:
