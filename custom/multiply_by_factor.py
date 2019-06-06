@@ -38,10 +38,10 @@ class MultiplyByFactor(BaseTransformer):
     def build_ui(cls):
         # define arguments that behave as function inputs
         inputs = []
-        inputs.append(ui.UIMultiItem(
+        inputs.append(ui.UISingle(
           name='input_item',
           datatype=float,
-          description="Data item to adjusta",
+          description="Data item to adjust",
         ))
         inputs.append(ui.UISingle(
           name='factor',
@@ -50,7 +50,7 @@ class MultiplyByFactor(BaseTransformer):
         outputs = []
         outputs.append(ui.UIFunctionOutSingle(
           name='output_item',
-           datatype=float,
-           description='Adjusted item'
+          datatype=float,
+          description='Adjusted item'
          ))
         return (inputs, outputs)
