@@ -23,20 +23,20 @@ class MultiplyByFactor(BaseTransformer):
     Multiply input items by a factor to produce a result
     '''
     
-    def __init__(self, input_items, factor, output_items):
+    def __init__(self, input_item_1, factor, output_item):
         #Initalization method.  Define input and output items here.
         
-        self.input_items = input_items
-        self.output_items = output_items
+        self.input_item_1 = input_item_1
         self.factor = factor
+        self.output_item = output_item
         super().__init__()
     
     def execute(self, df):
         #Execute method.
         
         df = df.copy()
-        for i,input_item in enumerate(self.input_items):
-            df[self.output_items[i]] = df[input_item] * self.factor
+        for i,input_item in enumerate(self.input_item_1):
+            df[self.output_item[i]] = df[input_item_1] * self.factor
         return df
 
     @classmethod
