@@ -20,18 +20,16 @@ PACKAGE_URL = 'git+https://github.com/luaithrenn/functions@'
 class MultiplyByFactor(BaseTransformer):
     
     '''
-        Multiply input items by a factor to produce a result
+    Multiply input items by a factor to produce a result
     '''
-    
     
     def __init__(self, input_items, factor, output_items):
         #Initalization method.  Define input and output items here.
         
         self.input_items = input_items
         self.output_items = output_items
-        self.factor = float(factor)
+        self.factor = factor
         super().__init__()
-    
     
     def execute(self, df):
         #Execute method.
@@ -44,7 +42,7 @@ class MultiplyByFactor(BaseTransformer):
     @classmethod
     def build_ui(cls):
         #define arguments that behave as function inputs
-        inputs = []
+        inputs = [
         inputs.append(ui.UIMultiItem(
              name = 'input_items',
              datatype=float,
@@ -53,10 +51,16 @@ class MultiplyByFactor(BaseTransformer):
              is_output_datatype_derived = True)
                   )
         inputs.append(ui.UISingle(
-          name = 'factor',
-          datatype=float)
+        name = 'factor',
+        datatype=float)
                   )
-        outputs = []
+        ]
+        outputs = [
+           ui.UIFunctionOutSingle(
+              name='greeting_col',
+              datatype=str,
+              description='Output item produced by function')
+       ]
         return (inputs,outputs)
 
 
