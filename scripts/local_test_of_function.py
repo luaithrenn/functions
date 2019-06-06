@@ -39,10 +39,11 @@ This file will be written to the working directory.
 
 '''
 from custom.multiply_by_factor import MultiplyByFactor
+
 fn = MultiplyByFactor(
-        input_items = '['speed','travel_time'],
+        input_items = ['speed', 'travel_time'],
         factor= '0.9'
-         output_items = ['adjusted_speed','adjusted_travel_time']
+        output_items=['adjusted_speed', 'adjusted_travel_time']
 )
 
 fn.execute_local_test(db=db,db_schema=db_schema)
