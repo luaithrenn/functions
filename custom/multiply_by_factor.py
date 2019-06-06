@@ -35,8 +35,7 @@ class MultiplyByFactor(BaseTransformer):
         #Execute method.
         
         df = df.copy()
-        for i,input_item_1 in enumerate(self.input_item_1):
-            df[self.output_item[i]] = df[input_item_1] * self.factor
+        df[self.output_item] = df[input_item_1] * self.factor
         return df
 
     @classmethod
