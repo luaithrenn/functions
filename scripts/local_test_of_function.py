@@ -38,8 +38,7 @@ By default test results are written to a file named df_test_entity_for_<function
 This file will be written to the working directory.
 
 '''
-
-from custom.functions import MultiplyByFactor
+from custom.multiply_by_factor import MultiplyByFactor
 fn = MultiplyByFactor(
         input_item = 'distance',
         factor= '0.9',
