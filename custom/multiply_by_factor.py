@@ -20,50 +20,36 @@ PACKAGE_URL = 'git+https://github.com/luaithrenn/functions@'
 class MultiplyByFactor(BaseTransformer):
     
     '''
-        Multiply input items by a factor to produce a result
+        Multiply a list of input data items by a constant to produce a data output column
+        for each input column in the list.
         '''
     
-    def __init__(self, input_item_1, factor, output_item):
-        #Initalization method.  Define input and output items here.
-        
-        self.input_item_1 = input_item_1
-        self.factor = factor
-        self.output_item = output_item
+    def __init__(self, input_items, factor, output_items):
+        self.input_items = input_items
+        self.output_items = output_items
+        self.factor = float(factor)
         super().__init__()
     
     def execute(self, df):
-        #Execute method.
-        
         df = df.copy()
-        for i,input_item_1 in enumerate(self.input_item_1):
-            df[self.output_item] = df[self.input_item_1] * self.factor
+        for i, input_item in enumerate(self.input_items):
+            df[self.output_items[i]] = df[input_item] * self.factor
         return df
     
     @classmethod
     def build_ui(cls):
-        #define arguments that behave as function inputs
+        # define arguments that behave as function inputs
         inputs = []
-        inputs.append(ui.UISingleItem(
-          name='input_item_1',
+        inputs.append(ui.UIMultiItem(
+          name='input_items',
           datatype=float,
-          description='Input item 1'
-        ))
-        inputs.append(ui.UISingleItem(
+          description="Data items adjust",
+          output_item='output_items',
+          is_output_datatype_derived=True)
+        )
+        inputs.append(ui.UISingle(
           name='factor',
-          datatype=float,
-          description="Factor"
-        ))
+          datatype=float)
+        )
         outputs = []
-        outputs.append(ui.UIFunctionOutSingle(
-          name='output_item',
-          datatype=str,
-          description='result of multiplication'
-        ))
-        return (inputs,outputs)
-
-
-
-
-
-
-
+        return (inputs, outputs)
