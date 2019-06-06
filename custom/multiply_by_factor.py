@@ -47,5 +47,5 @@ class MultiplyByFactor(BaseTransformer):
                 name = 'factor',
                 datatype=float)
                       )
-             outputs = []
-             return (inputs,outputs)
+        outputs = []
+        return (inputs,outputs)
